@@ -1,5 +1,93 @@
 ﻿@{
-	ViewData["Title"] = "Index";
+	ViewData["Title"] = "Create Page";
 	Layout = "~/Views/Shared/_Layout.cshtml";
+
 }
-<h1>Create</h1>
+@model StudentRegistration.Models.TblStudentRegTable
+
+
+
+<div class="container-fluid mt-4">
+	<div class="container">
+		<div class="card shadow">
+			<div class="card-header bg-primary text-white text-center">
+				<h5>Student Registration</h5>
+			</div>
+			<div class="card-body">
+				<from method="post" asp-action="Create">
+					<div class="row mb-3">
+						<div class="col-md-3">
+							<div class="form-group">
+								<label for="academicYear" class="form-label">Select Academic Year</label>
+								<select id="academicYear" class="form-control" asp-for="AcademicYear">
+									<option value="0" selected>Select</option>
+									<option value="1">2024-2025</option>
+								</select>
+							</div>
+						</div>
+						<div class="col-md-3">
+							<div class="form-group">
+								<label for="udiseCode" class="form-label">Enter School UDISE Code</label>
+								<input id="udiseCode" type="text" class="form-control" placeholder="Enter School UDISE Code" maxlength="11" asp-for="SchoolUdisecode" />
+							</div>
+						</div>
+						<div class="col-md-3">
+							<div class="form-group">
+								<label for="schoolName" class="form-label">Enter School Name</label>
+								<input id="schoolName" type="text" class="form-control" placeholder="Enter School Name" asp-for="SchoolName"/>
+							</div>
+						</div>
+						<div class="col-md-3">
+							<div class="form-group">
+								<label for="schoolNameHindi" class="form-label">स्कूल का नाम दर्ज करें</label>
+								<input id="schoolNameHindi" type="text" class="form-control" placeholder="स्कूल का नाम दर्ज करें" asp-for="SchoolNameHindi" />
+							</div>
+						</div>
+					</div>
+
+					<!-- Row 2 -->
+					<div class="row mb-3">
+						<div class="col-md-3">
+							<div class="form-group">
+								<label for="establishmentYear" class="form-label">Select Year of Establishment</label>
+								<input id="establishmentYear" type="date" class="form-control" asp-for="YearOfEstablishment" />
+							</div>
+						</div>
+						<div class="col-md-3">
+							<div class="form-group">
+								<label for="boardType" class="form-label">Select Board Type (Code)</label>
+								<select id="boardType" class="form-control" asp-for="BoardTypeCode">
+									<option value="0" selected>Select</option>
+									<option value="1">CBSE - (02)</option>
+									<option value="2">ICSE - (04)</option>
+									<option value="3">MP Board - (03)</option>
+								</select>
+							</div>
+						</div>
+						<div class="col-md-3">
+							<div class="form-group">
+								<label for="boardCode" class="form-label">Enter Board (Code)</label>
+								<input id="boardCode" type="text" maxlength="3" class="form-control" placeholder="Enter Board (Code)" asp-for="BoardCode" />
+							</div>
+						</div>
+						<div class="col-md-3">
+							<div class="form-group">
+								<label for="schoolType" class="form-label">Select School Type (Code)</label>
+								<select id="schoolType" class="form-control" asp-for="SchoolTypeCode">
+									<option value="0" selected>Select</option>
+									<option value="1">Boys - (01)</option>
+									<option value="2">Girls - (02)</option>
+									<option value="3">Co-Educational - (03)</option>
+								</select>
+							</div>
+						</div>
+					</div>
+				</from>
+			</div>
+			<div class="card-footer text-center">
+				<button class="btn btn-primary" type="submit">Submit</button>
+				<button class="btn btn-secondary">Reset</button>
+			</div>
+		</div>
+	</div>
+</div>
