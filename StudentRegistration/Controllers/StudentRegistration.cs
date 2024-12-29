@@ -19,10 +19,9 @@ namespace StudentRegistration.Controllers
 
         public IActionResult Index()
         {
+            //var registrations = context.TblStudentRegTables.ToList();
             return View();
         }
-
-
 
         public IActionResult Create()
         {
@@ -32,17 +31,19 @@ namespace StudentRegistration.Controllers
 
 
         [HttpPost]
+        [ValidateAntiForgeryToken] 
         public IActionResult Create(TblStudentRegTable tblStudentRegTable)
         {
             if (ModelState.IsValid)
             {
-                context.Add(tblStudentRegTable);
-                context.SaveChanges();
-
+                context.Add(tblStudentRegTable); 
+                context.SaveChanges();         
+                return RedirectToAction("Index"); 
             }
-            return View();
 
+            return View(tblStudentRegTable);
         }
 
     }
 }
+

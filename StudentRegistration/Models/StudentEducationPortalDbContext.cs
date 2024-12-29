@@ -15,7 +15,7 @@ public partial class StudentEducationPortalDbContext : DbContext
     {
     }
 
-    public static IEnumerable<object> TblStudentRegTable { get; internal set; }
+    public static IEnumerable<object>? TblStudentRegTable { get; internal set; }
     public virtual DbSet<TblStudentRegTable> TblStudentRegTables { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
